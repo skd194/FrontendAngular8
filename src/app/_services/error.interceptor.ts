@@ -7,7 +7,9 @@ import {
 import { catchError } from "rxjs/operators";
 import { throwError } from "rxjs";
 
-@Injectable()
+@Injectable({
+  providedIn: "root"
+})
 export class ErrorIntercepter implements HttpInterceptor {
   intercept(
     req: import("@angular/common/http").HttpRequest<any>,
