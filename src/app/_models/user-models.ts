@@ -5,7 +5,15 @@ export class LoginUser {
   password: string;
 }
 
-export class RegisterUser extends LoginUser {}
+export class RegisterUser extends LoginUser {
+  gender: string;
+  knownAs: string;
+  city: string;
+  country: string;
+  interests?: string;
+  lookingFor?: string;
+  dateOfBirth: Date;
+}
 
 export interface IUser {
   id: number;

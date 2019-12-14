@@ -3,10 +3,15 @@ import {
   HAMMER_GESTURE_CONFIG,
   HammerGestureConfig
 } from "@angular/platform-browser";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NgModule } from "@angular/core";
 import { HttpClientModule } from "@angular/common/http";
-import { FormsModule } from "@angular/forms";
-import { BsDropdownModule, TabsModule } from "ngx-bootstrap";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import {
+  BsDropdownModule,
+  TabsModule,
+  BsDatepickerModule
+} from "ngx-bootstrap";
 import { RouterModule } from "@angular/router";
 import { JwtModule } from "@auth0/angular-jwt";
 import { NgxGalleryModule } from "ngx-gallery";
@@ -22,6 +27,7 @@ import { appRoutes } from "./routes";
 import { MemberCardComponent } from "./members/member-card/member-card.component";
 import { environment } from "src/environments/environment";
 import { MemberDetailComponent } from "./members/member-detail/member-detail.component";
+import { MemberEditComponent } from "./members/member-edit/member-edit.component";
 
 export function tokenGetter() {
   return localStorage.getItem("token");
@@ -44,13 +50,17 @@ export class CustomHammerConfig extends HammerGestureConfig {
     ListsComponent,
     MessagesComponent,
     MemberCardComponent,
-    MemberDetailComponent
+    MemberDetailComponent,
+    MemberEditComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     BsDropdownModule.forRoot(),
+    BsDatepickerModule.forRoot(),
     TabsModule.forRoot(),
     RouterModule.forRoot(appRoutes),
     NgxGalleryModule,
